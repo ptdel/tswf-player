@@ -1,0 +1,4 @@
+boddlebottle
+ffmpeg-python
+git+https://github.com/rg3/youtube-dl.git
+requests

@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  player:
+    image: player:latest
+    restart: always
+    network_mode: "host"
+    volumes:
+      - ~/songs:/songs
+    ports:
+      - "8081:8081"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.75'
+          memory: 512M
+        reservations:
+          cpus: '1.0'
+          memory: 512M
