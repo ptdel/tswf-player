@@ -27,6 +27,42 @@ and after you've built the container:
 or
 ``` docker run -d -p8081:8081 player:latest ```
 
+## NGINX
+
+It's assumed that the API and Player are sitting behind NGINX.
+Included in this repository is an example rtmp.conf. The `rtmp.conf`
+should be included within its own block of your `nginx.conf`.
+An example `nginx.conf` is provided below:
+
+```
+user  nginx;
+worker_processes  1;
+
+events {
+    worker_connections  1024;
+}
+
+http {
+    include       mime.types;
+    default_type  application/octet-stream;
+
+    ssl on;
+    ssl_session_cache	shared:SSL:10m;
+    ssl_session_timeout	10m;
+    ssl_session_tickets	off;
+
+    sendfile        on;
+    keepalive_timeout  70;
+    include /etc/nginx/conf.d/api.conf;
+}
+
+include /etc/nginx/conf.d/rtmp.conf;
+```
+
+NGINX needs to be built with the RTMP Module in order to serve
+player content.  Compile NGINX with the following `./configure`
+flag:
+```--add-module=/path/to/nginx-rtmp-module```
 
 Built With
 ----------
