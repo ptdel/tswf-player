@@ -86,7 +86,7 @@ Versioning
 ----------
 
 [Semantic Versioning](https://www.semver.org/) will be used to version this project.
-Please consult the [releases](https://github.com/AHEAD-MSP/dashboard/releases)
+Please consult the [releases](https://github.com/ptdel/twsf-player/releases)
 page for a complete list of available versions.
 
 Authors
