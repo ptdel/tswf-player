@@ -6,8 +6,8 @@ A tiny SaaS for sharing song links with your friends over a common stream.
 About
 -----
 
-`tswf-api` is a api interface for interacting with a queue that serves as a
-playlist for the [tswf-player](https://github.com/ptdel/tswf-player) rtmp streaming worker:
+`tswf-player` is a media player for interacting with a queue that serves as a
+playlist from[tswf-api](https://github.com/ptdel/tswf-api):
 
 * `tswf-api` serves the flask routes for interacting with the queue
 * `tswf-player` plays song links submitted to the queue by calling the api
