@@ -10,7 +10,9 @@ ydl_opts = {
             "key": "FFmpegExtractAudio",
             "preferredcodec": "wav",
             "preferredquality": "192",
-        }
+        },
+        {"key": "FFmpegMetadata"},
+        {"key": "XAttrMetadata"},
     ],
     "logger": Logger(),
     "progress_hooks": [download_hook],
