@@ -4,11 +4,11 @@ from setuptools import setup, find_packages
 cwd = os.path.abspath(os.path.dirname(__file__))
 
 requires = [
-    "PyAudio>=0.2.11",
-    "python-librtmp>=0.3.0",
-    "ffmpeg>=1.4",
-    "bottle>=0.12.18",
-    "boddle>=0.2.8",
+    "PyAudio",
+    "python-librtmp",
+    "ffmpeg",
+    "bottle",
+    "boddle",
 ]
 
 setup(
