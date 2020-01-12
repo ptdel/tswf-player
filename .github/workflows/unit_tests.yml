@@ -13,7 +13,13 @@ jobs:
 
     steps:
     - name: Install Deps
-      run: sudo apt-get install portaudio librtmp-dev
+      run: |
+        sudo apt-get install curl librtmp-dev libasound-dev
+        curl -o portaudio.tgz http://portaudio.com/archives/pa_stable_v190600_20161030.tgz
+        tar -zxvf portaudio.tgz
+        cd portaudio
+        ./configure && make
+        sudo make install
     - uses: actions/checkout@v1
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v1
