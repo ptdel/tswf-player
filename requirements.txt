@@ -2,7 +2,6 @@ boddle
 bottle
 ffmpeg-python
 git+https://github.com/rg3/youtube-dl.git
-pyaudio>=0.2.11
 requests
 sphinx
 toml
