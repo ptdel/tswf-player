@@ -4,6 +4,7 @@ from setuptools import setup, find_packages
 cwd = os.path.abspath(os.path.dirname(__file__))
 
 requires = [
+    "pyaudio",
     "python-librtmp",
     "ffmpeg",
     "bottle",
