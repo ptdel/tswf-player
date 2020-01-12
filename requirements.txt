@@ -3,4 +3,5 @@ bottle
 ffmpeg-python
 git+https://github.com/rg3/youtube-dl.git
 requests
-sphinxtoml
+sphinx
+toml
