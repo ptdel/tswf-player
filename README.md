@@ -6,6 +6,15 @@ A tiny SaaS for sharing song links with your friends over a common stream.
 About
 -----
 
+You can build full documentation for this project by doing the following:
+```
+$ cd doc/
+$ make html
+$ make -b coverage
+```
+generated documentation is stored in `doc/build/html`, with a report of any
+undocumented code in `doc/build/coverage`.
+
 `tswf-player` is a media player for interacting with a queue that serves as a
 playlist from[tswf-api](https://github.com/ptdel/tswf-api):
 
