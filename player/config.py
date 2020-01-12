@@ -1,6 +1,7 @@
 from log import Logger
 from hooks import download_hook
 
+#: YoutubeDL options.
 ydl_opts = {
     "format": "bestaudio/best",
     "outtmpl": "/songs/%(title)s.%(ext)s",
