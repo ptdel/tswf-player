@@ -3,6 +3,7 @@ bottle
 ffmpeg-python
 git+https://github.com/rg3/youtube-dl.git
 pyaudio
+pyxattr
 requests
 sphinx
 toml

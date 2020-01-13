@@ -21,7 +21,9 @@ def test_options():
             "key": "FFmpegExtractAudio",
             "preferredcodec": "wav",
             "preferredquality": "192",
-        }
+        },
+        {"key": "FFmpegMetadata"},
+        {"key": "XAttrMetadata"},
     ]
     assert type(opts["logger"]) == Logger
     assert opts["progress_hooks"] == [download_hook]

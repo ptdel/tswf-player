@@ -9,6 +9,7 @@ requires = [
     "ffmpeg",
     "bottle",
     "boddle",
+    "pyxattr",
 ]
 
 setup(

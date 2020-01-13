@@ -35,7 +35,7 @@ def playloop():
     """
     while True:
         if stream.process is None or stream.process.poll() is not None:
-            next_song = get("https://127.0.0.1/api/next", verify=False)
+            next_song = get("http://127.0.0.1:8080/api/next", verify=False)
             if "Next" in next_song.json():
                 try:
                     ydl.download([next_song.json()["Next"]])
