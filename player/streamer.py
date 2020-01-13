@@ -1,4 +1,5 @@
 import ffmpeg
+from settings import settings
 
 
 class Stream:
@@ -20,13 +21,13 @@ class Stream:
         self.process = (
             ffmpeg.input(song, re=None, vn=None)
             .output(
-                "rtmp://127.0.0.1:1935/tswf",
-                preset="fast",
-                acodec="aac",
-                audio_bitrate="192k",
-                ar=44100,
-                threads=0,
-                format="flv",
+                settings.server.rtmp_host,
+                preset=settings.music.preset,
+                acodec=settings.music.audio_codec,
+                audio_bitrate=settings.music.audio_bitrate,
+                ar=settings.music.sample_frequency,
+                threads=settings.music.threads,
+                format=settings.music.format,
             )
             .run_async(pipe_stdout=True)
         )

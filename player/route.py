@@ -1,6 +1,6 @@
 from bottle import Bottle, request, HTTPResponse
 from streamer import stream  # type: ignore
-
+from settings import settings
 
 #: bottle application
 app = Bottle()
@@ -16,7 +16,7 @@ def restart():
     :rtype: HTTPResponse
     """
     client_ip = request.environ.get("REMOTE_ADDR")
-    if client_ip != "127.0.0.1":
+    if client_ip != settings.restart.allowed_host:
         return HTTPResponse(status=403)
     if stream.process is not None:
         stream.process.terminate()

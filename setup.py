@@ -10,6 +10,7 @@ requires = [
     "bottle",
     "boddle",
     "pyxattr",
+    "toml",
 ]
 
 setup(

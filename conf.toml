@@ -1,0 +1,17 @@
+[music]
+directory = "/songs"
+preset = "fast"
+audio_codec = "aac"
+audio_bitrate = "192k"
+sample_frequency = 44100
+threads = 0
+format = "flv"
+
+[server]
+host = "localhost"
+port = 8081
+call_next = "http://127.0.0.1:8080/api/next"
+rtmp_host = "rtmp://127.0.0.1:1935/tswf"
+
+[restart]
+allowed_host = "127.0.0.1"

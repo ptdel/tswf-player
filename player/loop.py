@@ -1,9 +1,11 @@
 import requests
 import threading
+from pathlib import Path
+from random import choice
 from signal import signal, SIGINT
-from time import sleep
 from streamer import stream  # type: ignore
 from ydl import ydl
+from settings import settings
 
 
 def exit_signal(signal, frame):
@@ -20,6 +22,11 @@ signal(SIGINT, exit_signal)
 interrupted = False
 
 
+#: Path to the music file directory
+music_directory = Path(settings.music.directory).glob("**/*")
+music_files = [file_ for file_ in music_directory if file_.is_file()]  # heh
+
+
 def playloop(interrupted=interrupted):
     """ A loop that runs forever.  This will attempt to grab a song from the
     tswf-api and download it.  Once it's downloaded the loop will call ffmpeg
@@ -29,12 +36,14 @@ def playloop(interrupted=interrupted):
     """
     while True:
         if stream.process is None or stream.process.poll() is not None:
-            next_song = requests.get("http://127.0.0.1:8080/api/next", verify=False)
-            ydl.download(
-                [next_song.json()["Next"]]
-            ) if "Next" in next_song.json() else sleep(5)
-            if interrupted:
-                break  # check for interruption at the end for testing purposes.
+            next_song = requests.get(settings.server.call_next, verify=False).json()
+            if "Next" in next_song:
+                ydl.download([next_song["Next"]])
+            else:
+                stream.stream_song(choice(music_files))
+
+        if interrupted:
+            break  # check for interruption at the end for testing purposes.
 
 
 player = threading.Thread(name="player", target=playloop)
