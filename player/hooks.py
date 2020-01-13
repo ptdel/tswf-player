@@ -1,4 +1,4 @@
-from player import stream  # type: ignore
+from streamer import stream  # type: ignore
 
 
 def download_hook(data, stream=stream):
