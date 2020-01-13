@@ -12,6 +12,8 @@ RUN apk add --no-cache \
     python-dev  \
     openssl-dev \
     ffmpeg \
+    librtmp \
+    portaudio-dev \
     git
 
 RUN pip install --no-cache-dir -r requirements.txt
