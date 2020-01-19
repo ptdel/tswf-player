@@ -38,7 +38,10 @@ def playloop(interrupted=interrupted):
         if stream.process is None or stream.process.poll() is not None:
             next_song = requests.get(settings.server.call_next, verify=False).json()
             if "Next" in next_song:
-                ydl.download([next_song["Next"]])
+                try:
+                    ydl.download([next_song["Next"]])
+                except Exception as e:
+                    raise e
             else:
                 stream.stream_song(choice(music_files))
 
