@@ -41,7 +41,7 @@ def playloop(interrupted=interrupted):
                 try:
                     ydl.download([next_song["Next"]])
                 except Exception as e:
-                    raise e
+                    print(e)
             else:
                 stream.stream_song(choice(music_files))
 
